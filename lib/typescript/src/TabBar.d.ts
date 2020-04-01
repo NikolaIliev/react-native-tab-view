@@ -10,6 +10,7 @@ export declare type Props<T extends Route> = SceneRendererProps & {
     inactiveColor?: string;
     pressColor?: string;
     pressOpacity?: number;
+    animateTabBarItemOpacity?: boolean;
     getLabelText: (scene: Scene<T>) => string | undefined;
     getAccessible: (scene: Scene<T>) => boolean | undefined;
     getAccessibilityLabel: (scene: Scene<T>) => string | undefined;
@@ -42,6 +43,7 @@ export default class TabBar<T extends Route> extends React.Component<Props<T>, S
         getAccessibilityLabel: ({ route }: Scene<Route>) => string | undefined;
         getTestID: ({ route }: Scene<Route>) => string | undefined;
         renderIndicator: (props: IndicatorProps<Route>) => JSX.Element;
+        animateTabBarItemOpacity: boolean;
     };
     state: {
         layout: {

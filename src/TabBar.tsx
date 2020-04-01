@@ -30,6 +30,7 @@ export type Props<T extends Route> = SceneRendererProps & {
   inactiveColor?: string;
   pressColor?: string;
   pressOpacity?: number;
+  animateTabBarItemOpacity?: boolean;
   getLabelText: (scene: Scene<T>) => string | undefined;
   getAccessible: (scene: Scene<T>) => boolean | undefined;
   getAccessibilityLabel: (scene: Scene<T>) => string | undefined;
@@ -80,6 +81,7 @@ export default class TabBar<T extends Route> extends React.Component<
     renderIndicator: (props: IndicatorProps<Route>) => (
       <TabBarIndicator {...props} />
     ),
+    animateTabBarItemOpacity: true
   };
 
   state = {
@@ -219,6 +221,7 @@ export default class TabBar<T extends Route> extends React.Component<
       inactiveColor,
       pressColor,
       pressOpacity,
+      animateTabBarItemOpacity,
       onTabPress,
       onTabLongPress,
       tabStyle,
@@ -310,6 +313,7 @@ export default class TabBar<T extends Route> extends React.Component<
                 inactiveColor={inactiveColor}
                 pressColor={pressColor}
                 pressOpacity={pressOpacity}
+                animateOpacity={animateTabBarItemOpacity}
                 onPress={() => {
                   onTabPress && onTabPress({ route });
                   this.props.jumpTo(route.key);

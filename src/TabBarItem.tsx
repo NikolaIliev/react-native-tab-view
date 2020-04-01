@@ -20,6 +20,7 @@ type Props<T extends Route> = {
   inactiveColor?: string;
   pressColor?: string;
   pressOpacity?: number;
+  animateOpacity?: boolean;
   getLabelText: (scene: Scene<T>) => string | undefined;
   getAccessible: (scene: Scene<T>) => boolean | undefined;
   getAccessibilityLabel: (scene: Scene<T>) => string | undefined;
@@ -93,6 +94,7 @@ export default class TabBarItem<T extends Route> extends React.Component<
       inactiveColor = DEFAULT_INACTIVE_COLOR,
       pressColor,
       pressOpacity,
+      animateOpacity,
       labelStyle,
       style,
       tabWidth,
@@ -184,14 +186,14 @@ export default class TabBarItem<T extends Route> extends React.Component<
 
       label = (
         <View>
-          <View>
+          <Animated.View style={animateOpacity ? { opacity: inactiveOpacity } : null}>
             {inactiveLabel}
-          </View>
-          <View
-            style={StyleSheet.absoluteFill}
+          </Animated.View>
+          <Animated.View
+            style={[StyleSheet.absoluteFill, animateOpacity ? { opacity: activeOpacity } : null]}
           >
             {activeLabel}
-          </View>
+          </Animated.View>
         </View>
       );
     }

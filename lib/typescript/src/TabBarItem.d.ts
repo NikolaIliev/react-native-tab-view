@@ -11,6 +11,7 @@ declare type Props<T extends Route> = {
     inactiveColor?: string;
     pressColor?: string;
     pressOpacity?: number;
+    animateOpacity?: boolean;
     getLabelText: (scene: Scene<T>) => string | undefined;
     getAccessible: (scene: Scene<T>) => boolean | undefined;
     getAccessibilityLabel: (scene: Scene<T>) => string | undefined;
