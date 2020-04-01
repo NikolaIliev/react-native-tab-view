@@ -184,14 +184,14 @@ export default class TabBarItem<T extends Route> extends React.Component<
 
       label = (
         <View>
-          <Animated.View style={{ opacity: inactiveOpacity }}>
+          <View>
             {inactiveLabel}
-          </Animated.View>
-          <Animated.View
-            style={[StyleSheet.absoluteFill, { opacity: activeOpacity }]}
+          </View>
+          <View
+            style={StyleSheet.absoluteFill}
           >
             {activeLabel}
-          </Animated.View>
+          </View>
         </View>
       );
     }
